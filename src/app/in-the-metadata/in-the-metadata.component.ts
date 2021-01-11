@@ -8,19 +8,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './in-the-metadata.component.html',
   styleUrls: ['./in-the-metadata.component.css'],
   // tslint:disable: no-inputs-metadata-property no-outputs-metadata-property
-  inputs: ['clearanceItem'],
+  //inputs: ['clearanceItem'],
   outputs: ['buyEvent']
   // tslint:enable: no-inputs-metadata-property no-outputs-metadata-property
 
 })
 export class InTheMetadataComponent  {
-
+  @Input('clearanceItem') clearanceItem:string;
+  
 
   buyEvent = new EventEmitter<string>();
-  clearanceItem: string;
+ // clearanceItem: string;
 
   buyIt() {
     console.warn('Child says: emiting buyEvent with', this.clearanceItem);
+   
     this.buyEvent.emit(this.clearanceItem);
   }
 
